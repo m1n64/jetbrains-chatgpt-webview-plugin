@@ -21,7 +21,7 @@ Plugin works by default Jetbrains CEF, and plugin don't steel your credentials.
 Build `.zip` file will be located in `build/distributions`
 
 ## Installation
-Download `.jar` file from releases and install it manually using
+Download `.zip` file from releases and install it manually using
 <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>, or you can build file manually and install it.
 
 ## Changelog
