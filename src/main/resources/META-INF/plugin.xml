@@ -1,0 +1,40 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>m1n64.openai.webview</id>
+    <name>ChatGPT Webview</name>
+    <vendor>m1n64</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.MyBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow
+                id="ChatGPT"
+                anchor="right"
+                factoryClass="m1n64.openai.webview.chatgpt.BrowserToolWindowFactory"
+                canCloseContent="false"
+                icon="/icons/chatgpt.svg"
+                stripeTitle="ChatGPT"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="m1n64.openai.webview.chatgpt.ChatGptSettings"/>
+        <applicationConfigurable instance="m1n64.openai.webview.chatgpt.ChatGptConfigurable"
+                                 id="m1n64.openai.webview.chatgpt.settings"
+                                 displayName="ChatGPT Web View"/>
+    </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="m1n64.openai.webview.chatgpt.ApplyShortcutOnStartup"/>
+    </extensions>
+
+    <actions>
+        <action id="m1n64.openai.webview.chatgpt.Show"
+                class="m1n64.openai.webview.chatgpt.ShowChatGptToolWindowAction"
+                text="Show ChatGPT"
+                description="Open ChatGPT Tool Window">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
